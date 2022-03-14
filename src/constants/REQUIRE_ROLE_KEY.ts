@@ -1,0 +1,1 @@
+export const REQUIRE_ROLE_KEY = 'REQUIRE_ROLE_KEY';
