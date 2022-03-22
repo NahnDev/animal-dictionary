@@ -9,7 +9,7 @@ import { faBaby, faBrain, faUser } from "@fortawesome/free-solid-svg-icons";
 export default function AppFooter() {
     return (
         <footer className="AppFooter flex items-start justify-between p-5">
-            <Link to="/" className={clsx(["Logo", "text-left"])}>
+            <Link to="/" className={clsx(["Logo", "text-left px-20"])}>
                 <h1 className="text-2xl p-2 font-bold">Animals</h1>
                 <p>Information Animal</p>
             </Link>

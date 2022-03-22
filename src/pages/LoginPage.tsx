@@ -19,7 +19,7 @@ export default function LoginPage() {
                     <input
                         type="text"
                         placeholder="Enter username"
-                        className="p-1 my-2 rounded-2xl px-2 border-2 focus:border-2 focus:border-slate-500 border-slate-500 focus:outline-none"
+                        className="p-1 px-2 my-2 cus-input"
                     />
                 </label>
                 <label className="w-full flex flex-col">
@@ -27,7 +27,7 @@ export default function LoginPage() {
                     <input
                         type="password"
                         placeholder="Enter your password"
-                        className="p-1 my-2 rounded-2xl px-2 border-2 focus:border-2 focus:border-slate-500 border-slate-500 focus:outline-none"
+                        className="p-1 px-2 my-2 cus-input"
                     />
                 </label>
                 <button className="p-1 my-8 uppercase w-full rounded-full bg-green-300 hover:transition-transform duration-500 hover:ring-2 ring-green-300 ring-offset-1">
