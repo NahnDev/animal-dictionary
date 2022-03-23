@@ -94,4 +94,47 @@
             }
         }
     }
+
+    &__howitwork {
+        height: 35rem;
+        background-image: url(./../../assets/img/Nature-rafiki.png);
+        background-size: 60%;
+        background-repeat: no-repeat;
+
+        &--title {
+            margin-left: 0.5rem;
+            font-family: $MontserratExtraBold;
+            font-size: 2.7rem;
+            letter-spacing: 0.05rem;
+
+            &-desc {
+                margin-left: 0.5rem;
+                font-size: 2.7rem;
+                letter-spacing: 0.05rem;
+            }
+        }
+
+        &--desc {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        &--item {
+            padding: 1rem 0.5rem;
+
+            &-icon {
+                padding: 0.5rem 0.85rem;
+                font-size: 1.25rem;
+                border: 1px solid $color_eerie_black;
+                border-radius: 15px;
+            }
+
+            &-title {
+                margin: 0.25rem 0 0.25rem 0.25rem;
+                font-family: $MontserratBold;
+                letter-spacing: 0.05rem;
+                font-size: 1rem;
+            }
+        }
+    }
 }

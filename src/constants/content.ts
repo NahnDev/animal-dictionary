@@ -3,6 +3,10 @@ import {
     GooglePlusOutlined,
     GithubOutlined,
     SearchOutlined,
+    LogoutOutlined,
+    CameraOutlined,
+    CloudServerOutlined,
+    FormOutlined,
 } from '@ant-design/icons'
 
 export const CONTENT_COMPONENT = {
@@ -48,5 +52,34 @@ export const CONTENT_HOME = {
             placeholder: 'Find your animal',
             icon: SearchOutlined,
         },
+    },
+
+    howitwork: {
+        title: 'How it',
+        descTitle: 'works',
+        desc: "Let's login & add your animal information",
+
+        listStep: [
+            {
+                icon: LogoutOutlined,
+                title: 'Step One',
+                desc: 'Log in with your account to the website.',
+            },
+            {
+                icon: CameraOutlined,
+                title: 'Step Two',
+                desc: 'Upload the photo or video of your animal.',
+            },
+            {
+                icon: FormOutlined,
+                title: 'Step Three',
+                desc: 'Enter your animal information on the website.',
+            },
+            {
+                icon: CloudServerOutlined,
+                title: 'Step Four',
+                desc: 'Your animal information is saved in Cloud & Website.',
+            },
+        ],
     },
 }

@@ -40,7 +40,7 @@ function Home(props: IProps) {
                         },
                     ]}
                 />
-                <HowItWork />
+                <HowItWork className={`${className}__howitwork`} content={content.howitwork} />
                 <ListAnimal />
             </Col>
         </Row>
