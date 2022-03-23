@@ -28,3 +28,8 @@ export const CONTENT_COMPONENT = {
         icons: [{ icon: FacebookOutlined }, { icon: GooglePlusOutlined }, { icon: GithubOutlined }],
     },
 }
+
+export const CONTENT_LOGIN = {
+    title: 'Login',
+    desc: 'Log in with your account to the website.',
+}

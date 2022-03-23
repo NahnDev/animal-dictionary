@@ -4,3 +4,7 @@ export const classComponent = {
     navbarCustom: 'navbar',
     search: 'search',
 }
+
+export const classLogin = {
+    login: 'login',
+}
