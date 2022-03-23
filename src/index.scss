@@ -1,0 +1,17 @@
+@import './assets/style/font';
+
+body {
+    margin: 0;
+    font-family: $MontserratRegular, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+        'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+code {
+    font-family: $MontserratRegular, 'Courier New', monospace;
+}
