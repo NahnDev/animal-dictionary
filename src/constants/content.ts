@@ -82,4 +82,10 @@ export const CONTENT_HOME = {
             },
         ],
     },
+
+    listAnimal: {
+        title: 'Animals',
+        descTitle: 'information',
+        desc: 'Get the information about animal',
+    },
 }
