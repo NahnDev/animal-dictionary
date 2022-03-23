@@ -25,7 +25,7 @@ function Header(props: IProps) {
                 <LogoProject className={`${className}__logo`} title={content.titleLogo} />
             </Col>
             <Col>
-                {!user.isLogin ? (
+                {user.isLogin ? (
                     <UserLogout
                         className={`${className}__navbar`}
                         item={content.textLogout}

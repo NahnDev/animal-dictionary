@@ -8,8 +8,8 @@ import { ROOT_ROUTE } from './routes/root.route'
 
 import AnimalsPage from './pages/Admin'
 import { Col, Row } from 'antd'
-import Footer from './components/footer'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 function App() {
     const user = useRecoilValue(userState)
