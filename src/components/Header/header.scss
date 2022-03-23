@@ -1,0 +1,38 @@
+@import '../../assets/style/font';
+@import '../../assets/style/colors';
+
+.header {
+    height: 6.25rem;
+    padding: 0 3rem;
+    color: $color_eerie_black;
+
+    &__logo > span {
+        font-family: $MontserratExtraBold;
+        font-size: 1.5rem;
+        letter-spacing: 0.05rem;
+    }
+
+    &__navbar {
+        &--item {
+            margin-left: 5rem;
+            padding: 0.25rem 0;
+
+            font-weight: 500;
+            font-size: 1.1rem;
+
+            border-bottom: 1px solid $color_white;
+
+            transition: all 750ms;
+            &:hover,
+            &:focus {
+                border-bottom: 1px solid $color_eerie_black;
+                transition: all 750ms;
+            }
+        }
+
+        &--text {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+    }
+}
