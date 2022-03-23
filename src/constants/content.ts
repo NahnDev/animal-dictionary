@@ -1,4 +1,9 @@
-import { FacebookOutlined, GooglePlusOutlined, GithubOutlined } from '@ant-design/icons'
+import {
+    FacebookOutlined,
+    GooglePlusOutlined,
+    GithubOutlined,
+    SearchOutlined,
+} from '@ant-design/icons'
 
 export const CONTENT_COMPONENT = {
     header: {
@@ -32,4 +37,16 @@ export const CONTENT_COMPONENT = {
 export const CONTENT_LOGIN = {
     title: 'Login',
     desc: 'Log in with your account to the website.',
+}
+
+export const CONTENT_HOME = {
+    landing: {
+        title: 'Helping you',
+        desc: 'to get information about your animal',
+
+        search: {
+            placeholder: 'Find your animal',
+            icon: SearchOutlined,
+        },
+    },
 }

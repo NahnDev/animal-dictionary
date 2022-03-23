@@ -1,0 +1,97 @@
+@import '../../assets/style/font';
+@import '../../assets/style/colors';
+@import '../../assets/style/global';
+
+.home {
+    margin-top: 5.25rem;
+    &__landing {
+        height: 35rem;
+        background-position: right;
+        background-image: url(./../../assets/img/Ecosystem-bro.png);
+        background-size: 75%;
+        background-repeat: no-repeat;
+
+        &--title {
+            display: flex;
+            margin-left: 0.5rem;
+            font-family: $MontserratExtraBold;
+            font-size: 2.7rem;
+            letter-spacing: 0.05rem;
+        }
+
+        &--desc {
+            display: flex;
+            font-weight: 500;
+            width: 30rem;
+            font-size: 2.7rem;
+        }
+
+        &--search {
+            padding: 0.4rem 1.5rem;
+            margin: 0.5rem 0;
+            width: 20rem;
+            border: 1px solid $color_eerie_black;
+            border-radius: 20px;
+
+            &-input {
+                width: 90%;
+            }
+
+            &-icon {
+                font-size: 1rem;
+                cursor: pointer;
+            }
+        }
+
+        &--card {
+            margin: 0.5rem;
+            padding: 0.75rem;
+            height: 17rem;
+            width: 12.5rem;
+            box-shadow: $box-shadow;
+            background-color: rgba($color_white, 0.9);
+
+            border-radius: 15px;
+
+            &-img {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                height: 8.5rem;
+
+                object-fit: cover;
+                border-radius: 15px;
+            }
+
+            &-title {
+                margin-top: 0.25rem 0;
+                font-family: $MontserratBold;
+
+                font-size: 0.9rem;
+                @extend .over-text;
+            }
+
+            &-name {
+                font-weight: 600;
+                @extend .over-text;
+            }
+
+            &-desc {
+                margin-top: 0.25rem;
+                -webkit-line-clamp: 2;
+                @extend .over-textarea;
+            }
+
+            &-btn {
+                border-bottom: 1px solid $color_white;
+                transition: all 750ms;
+
+                &:hover,
+                &:focus {
+                    border-bottom: 1px solid $color_eerie_black;
+                    transition: all 750ms;
+                }
+            }
+        }
+    }
+}

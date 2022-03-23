@@ -3,3 +3,9 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.over-textarea {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

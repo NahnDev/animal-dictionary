@@ -2,9 +2,13 @@
 @import '../../assets/style/colors';
 
 .header {
-    height: 6.25rem;
+    position: fixed;
+    width: 75vw;
+    height: 5.25rem;
     padding: 0 3rem;
     color: $color_eerie_black;
+    background-color: $color_white;
+    z-index: 10;
 
     &__logo > span {
         font-family: $MontserratExtraBold;

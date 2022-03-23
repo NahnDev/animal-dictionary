@@ -8,3 +8,7 @@ export const classComponent = {
 export const classLogin = {
     login: 'login',
 }
+
+export const classHome = {
+    home: 'home',
+}
