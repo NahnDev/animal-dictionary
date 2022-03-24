@@ -1,8 +1,10 @@
 import { Col, Row } from 'antd'
 import { useEffect } from 'react'
+import { useSetRecoilState } from 'recoil'
 import { classFeature } from '../../constants/className'
 import { CONTENT_LOGIN } from '../../constants/content'
 import Images from '../../constants/images'
+import { userState } from '../../recoil/userState'
 import FormLogin from './components/formLogin'
 
 import './login.scss'
@@ -11,8 +13,10 @@ const className = classFeature.login
 const content = CONTENT_LOGIN
 
 function Login() {
+    const setUser = useSetRecoilState(userState)
+
     const handleSubmit = (value: { username: string; password: string }) => {
-        console.log(value)
+        setUser({ isLogin: true })
     }
 
     useEffect(() => {

@@ -1,5 +1,5 @@
 import { Col, Row } from 'antd'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { classComponent } from '../../constants/className'
 import { CONTENT_COMPONENT } from '../../constants/content'
 import { userState } from '../../recoil/userState'
@@ -14,9 +14,9 @@ const content = CONTENT_COMPONENT.header
 
 function Header(props: IProps) {
     const {} = props
-    const user = useRecoilValue(userState)
+    const [user, setUser] = useRecoilState(userState)
     const handleLogout = () => {
-        console.log('logout')
+        setUser({ isLogin: false })
     }
 
     return (
