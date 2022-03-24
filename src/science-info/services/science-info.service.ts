@@ -4,6 +4,7 @@ import { Model, Document } from 'mongoose';
 import { CreateScienceDto } from '../dto/create-science.dto';
 import { UpdateScienceDto } from '../dto/update-science.dto';
 import { ITEM_OF_PAGE } from 'src/constants/ITEM_OF_PAGE';
+import { ApiOkResponse, ApiProperty } from '@nestjs/swagger';
 
 @Injectable()
 export abstract class ScienceInfoService<T extends Science, D = Document> {

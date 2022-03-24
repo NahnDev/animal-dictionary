@@ -17,6 +17,7 @@ import { Types } from 'mongoose';
 import { JwtGuard } from 'src/auth/guards/jwt.guard';
 import { RequireRole } from 'src/decorators/require-role.decorator';
 import { USER_ROLE } from 'src/enum/USER_ROLE';
+import { ApiBearerAuth, ApiOkResponse } from '@nestjs/swagger';
 
 export abstract class ScienceInfoController {
   constructor(
@@ -26,6 +27,8 @@ export abstract class ScienceInfoController {
     >,
   ) {}
 
+  @ApiOkResponse({ type: Science })
+  @ApiBearerAuth()
   @UseGuards(JwtGuard)
   @RequireRole([USER_ROLE.ADMIN, USER_ROLE.EDITOR])
   @Post()
@@ -33,12 +36,14 @@ export abstract class ScienceInfoController {
     return this.scienceInfoService.create(createDto);
   }
 
+  @ApiOkResponse({ type: [Science] })
   @Get()
   async getAll(@Query('page') pageQuery?: string) {
     const page = Number(pageQuery) || 0;
     return this.scienceInfoService.findAll(page);
   }
 
+  @ApiOkResponse({ type: Science })
   @Get(':idOrName')
   async getOne(@Param('idOrName') idOrName: string) {
     if (Types.ObjectId.isValid(idOrName)) {
@@ -48,6 +53,8 @@ export abstract class ScienceInfoController {
     }
   }
 
+  @ApiOkResponse({ type: Science })
+  @ApiBearerAuth()
   @UseGuards(JwtGuard)
   @RequireRole([USER_ROLE.ADMIN, USER_ROLE.EDITOR])
   @Patch(':id')
@@ -58,6 +65,7 @@ export abstract class ScienceInfoController {
     return this.scienceInfoService.updateOne(id, updateDto);
   }
 
+  @ApiBearerAuth()
   @UseGuards(JwtGuard)
   @RequireRole([USER_ROLE.ADMIN, USER_ROLE.EDITOR])
   @Delete(':id')
