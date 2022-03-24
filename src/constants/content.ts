@@ -87,6 +87,8 @@ export const CONTENT_HOME = {
         title: 'Animals',
         descTitle: 'information',
         desc: 'Get the information about animal',
+        textLink: 'See All',
+        path: '/animals',
     },
 }
 

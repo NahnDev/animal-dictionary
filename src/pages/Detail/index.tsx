@@ -1,4 +1,5 @@
 import { Col, Row } from 'antd'
+import { useEffect } from 'react'
 import { classFeature } from '../../constants/className'
 import { CONTENT_DETAIL } from '../../constants/content'
 import DescriptionsAnimal from './components/descriptions'
@@ -8,12 +9,13 @@ import ListAnimal from './components/listAnimals'
 
 import './detail.scss'
 
-type IProps = {}
-
 const className = classFeature.animalDetail
 const content = CONTENT_DETAIL
 
-function Detail(props: IProps) {
+function Detail() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <Row className={`${className}`}>
             <Col xs={24}>

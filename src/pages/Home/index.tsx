@@ -1,4 +1,5 @@
 import { Col, Row } from 'antd'
+import { useEffect } from 'react'
 import { classFeature } from '../../constants/className'
 import { CONTENT_HOME } from '../../constants/content'
 import HowItWork from './components/howitwork'
@@ -7,12 +8,13 @@ import ListAnimal from './components/listAnimals'
 
 import './home.scss'
 
-type IProps = {}
-
 const className = classFeature.home
 const content = CONTENT_HOME
 
-function Home(props: IProps) {
+function Home() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <Row className={`${className}`}>
             <Col xs={24}>

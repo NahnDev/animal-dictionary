@@ -1,4 +1,5 @@
 import { Col, Row } from 'antd'
+import { useEffect } from 'react'
 import { classFeature } from '../../constants/className'
 import { CONTENT_LOGIN } from '../../constants/content'
 import Images from '../../constants/images'
@@ -6,15 +7,17 @@ import FormLogin from './components/formLogin'
 
 import './login.scss'
 
-type IProps = {}
-
 const className = classFeature.login
 const content = CONTENT_LOGIN
 
-function Login(props: IProps) {
+function Login() {
     const handleSubmit = (value: { username: string; password: string }) => {
         console.log(value)
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <Row align="middle" className={`${className}`}>
             <Col xs={12}>

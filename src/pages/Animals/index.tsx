@@ -6,6 +6,7 @@ import { classFeature } from '../../constants/className'
 import { CONTENT_ANIMALS } from '../../constants/content'
 
 import './animals.scss'
+import { useEffect } from 'react'
 
 type IProps = {}
 
@@ -16,6 +17,10 @@ function Animals(props: IProps) {
     const handleFilter = (value: any) => {
         console.log(value)
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <Row className={`${className}`}>
             <Col xs={24}>

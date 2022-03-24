@@ -1,4 +1,5 @@
 import { Col, Row } from 'antd'
+import { Link } from 'react-router-dom'
 import CardAnimal from '../../../components/cardAnimal'
 
 type IProps = {
@@ -9,6 +10,7 @@ type IProps = {
 
 function ListAnimal(props: IProps) {
     const { className, listAnimal, content } = props
+
     return (
         <Row align="middle" className={`${className}`}>
             <Col xs={24}>
@@ -23,6 +25,11 @@ function ListAnimal(props: IProps) {
                     {listAnimal.map((animal: any, index: any) => {
                         return <CardAnimal className={`${className}--card`} animal={animal} />
                     })}
+                </Row>
+                <Row justify="center">
+                    <Link className={`${className}--link`} to={content.path}>
+                        {content.textLink}
+                    </Link>
                 </Row>
             </Col>
         </Row>
