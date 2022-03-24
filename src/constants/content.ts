@@ -104,3 +104,23 @@ export const CONTENT_ANIMALS = {
         defaultValueLabel: 'All',
     },
 }
+
+export const CONTENT_DETAIL = {
+    title: 'All Animal',
+    desc: 'Get all information about animal',
+
+    search: {
+        placeholder: 'Search',
+        icon: SearchOutlined,
+    },
+
+    filter: {
+        defaultValue: 'all',
+        defaultValueLabel: 'All',
+    },
+
+    listAnimal: {
+        title: 'Animals',
+        descTitle: 'of the same kind',
+    },
+}

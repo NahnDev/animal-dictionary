@@ -1,0 +1,166 @@
+@import '../../assets/style/font';
+@import '../../assets/style/colors';
+@import '../../assets/style/global';
+
+.animal-detail {
+    margin-top: 5.25rem;
+    &__images {
+        &--carousel {
+            padding: 0.5rem 0;
+
+            &-img {
+                height: 50vh;
+                border-radius: 20px;
+
+                object-fit: cover;
+            }
+        }
+
+        &--list {
+            &-item {
+                cursor: pointer;
+                width: 17.9vh;
+                padding: 0.2rem;
+                border: 4px solid $color_white;
+                border-radius: 20px;
+
+                &.active {
+                    border: 4px solid $color_celadon;
+                }
+            }
+
+            &-img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 15px;
+            }
+        }
+    }
+
+    &__detail-animal,
+    &__desc-animal {
+        padding: 1rem 2rem;
+        &--title,
+        &--label,
+        &--text {
+            display: block;
+        }
+        &--title {
+            font-family: $MontserratExtraBold;
+            font-size: 1.1rem;
+        }
+
+        &--label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        &--text {
+            margin: 0.25rem 0 0.25rem 1.5rem;
+        }
+    }
+
+    &__list {
+        height: 35rem;
+
+        &--title {
+            margin-left: 0.5rem;
+            font-family: $MontserratExtraBold;
+            font-size: 2.7rem;
+            letter-spacing: 0.05rem;
+
+            &-desc {
+                margin-left: 0.5rem;
+                font-size: 2.7rem;
+                letter-spacing: 0.05rem;
+            }
+        }
+
+        &--desc {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        &--item {
+            padding: 1rem 0.5rem;
+
+            &-icon {
+                padding: 0.5rem 0.85rem;
+                font-size: 1.25rem;
+                border: 1px solid $color_eerie_black;
+                border-radius: 15px;
+            }
+
+            &-title {
+                margin: 0.25rem 0 0.25rem 0.25rem;
+                font-family: $MontserratBold;
+                letter-spacing: 0.05rem;
+                font-size: 1rem;
+            }
+        }
+
+        &--card {
+            margin: 0.5rem 1rem;
+            padding: 0.75rem;
+            height: 24rem;
+            width: 17.5rem;
+            box-shadow: $box-shadow;
+            background-color: rgba($color_white, 0.9);
+
+            border-radius: 15px;
+
+            &-img {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                height: 12rem;
+
+                object-fit: cover;
+                border-radius: 15px;
+            }
+
+            &-title {
+                margin-top: 0.5rem;
+                font-family: $MontserratBold;
+
+                font-size: 0.9rem;
+                @extend .over-text;
+            }
+
+            &-name {
+                font-weight: 600;
+                @extend .over-text;
+            }
+
+            &-desc {
+                margin-top: 0.75rem;
+                -webkit-line-clamp: 3;
+                @extend .over-textarea;
+            }
+
+            &-btn {
+                margin-top: 0.5rem;
+                border-bottom: 1px solid $color_white;
+                transition: all 750ms;
+
+                &:hover,
+                &:focus {
+                    border-bottom: 1px solid $color_eerie_black;
+                    transition: all 750ms;
+                }
+            }
+        }
+    }
+}
+
+.r {
+    &-1 {
+        @extend .over-text;
+    }
+
+    &-2 {
+        -webkit-line-clamp: 2;
+        @extend .over-textarea;
+    }
+}
