@@ -1,5 +1,5 @@
 import { Col, Row } from 'antd'
-import { classHome } from '../../constants/className'
+import { classFeature } from '../../constants/className'
 import { CONTENT_HOME } from '../../constants/content'
 import HowItWork from './components/howitwork'
 import Landing from './components/landing'
@@ -9,7 +9,7 @@ import './home.scss'
 
 type IProps = {}
 
-const className = classHome.home
+const className = classFeature.home
 const content = CONTENT_HOME
 
 function Home(props: IProps) {

@@ -5,10 +5,8 @@ export const classComponent = {
     search: 'search',
 }
 
-export const classLogin = {
+export const classFeature = {
     login: 'login',
-}
-
-export const classHome = {
     home: 'home',
+    animals: 'animals',
 }

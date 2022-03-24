@@ -1,5 +1,5 @@
 import { Col, Row } from 'antd'
-import { classLogin } from '../../constants/className'
+import { classFeature } from '../../constants/className'
 import { CONTENT_LOGIN } from '../../constants/content'
 import Images from '../../constants/images'
 import FormLogin from './components/formLogin'
@@ -8,7 +8,7 @@ import './login.scss'
 
 type IProps = {}
 
-const className = classLogin.login
+const className = classFeature.login
 const content = CONTENT_LOGIN
 
 function Login(props: IProps) {

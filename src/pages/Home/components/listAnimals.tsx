@@ -1,5 +1,5 @@
 import { Col, Row } from 'antd'
-import CardAnimal from './cardAnimal'
+import CardAnimal from '../../../components/cardAnimal'
 
 type IProps = {
     className: string

@@ -89,3 +89,18 @@ export const CONTENT_HOME = {
         desc: 'Get the information about animal',
     },
 }
+
+export const CONTENT_ANIMALS = {
+    title: 'All Animal',
+    desc: 'Get all information about animal',
+
+    search: {
+        placeholder: 'Search',
+        icon: SearchOutlined,
+    },
+
+    filter: {
+        defaultValue: 'all',
+        defaultValueLabel: 'All',
+    },
+}
