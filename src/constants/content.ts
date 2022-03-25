@@ -160,20 +160,14 @@ export const CONTENT_ADMIN = {
         title: 'User',
         textAddUser: 'Add User',
         textEditUser: 'Edit User',
-        pathAddUser: 'add',
         pageSize: 8,
 
         search: {
-            placeholder: 'Find your animal',
+            placeholder: 'Find user',
             icon: SearchOutlined,
         },
 
         columnsTable: [
-            {
-                title: 'ID',
-                dataIndex: '_id',
-                key: '_id',
-            },
             {
                 title: 'Name',
                 dataIndex: 'name',
@@ -192,4 +186,24 @@ export const CONTENT_ADMIN = {
             { value: 'ADMIN', text: 'ADMIN' },
         ],
     },
+
+    animalClass: {
+        title: 'Animal Class',
+        textAdd: 'Add Animal Class',
+        textEdit: 'Edit Animal Class',
+        pageSize: 8,
+
+        search: {
+            placeholder: 'Find animal class',
+            icon: SearchOutlined,
+        },
+    },
+
+    columnsTableTemp: [
+        {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+        },
+    ],
 }

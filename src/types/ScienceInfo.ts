@@ -1,5 +1,5 @@
 export type ScienceInfo = {
-    _id: string
+    _id?: string
     name: string
 }
 
