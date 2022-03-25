@@ -211,6 +211,18 @@ export const CONTENT_ADMIN = {
         },
     },
 
+    ordo: {
+        title: 'Ordo',
+        textAdd: 'Add ordo',
+        textEdit: 'Edit ordo',
+        pageSize: 8,
+
+        search: {
+            placeholder: 'Find ordo',
+            icon: SearchOutlined,
+        },
+    },
+
     columnsTableTemp: [
         {
             title: 'Name',
