@@ -10,4 +10,5 @@ export const classFeature = {
     home: 'home',
     animals: 'animals',
     animalDetail: 'animal-detail',
+    admin: 'admin',
 }

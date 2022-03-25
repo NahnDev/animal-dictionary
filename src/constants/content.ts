@@ -7,6 +7,8 @@ import {
     CameraOutlined,
     CloudServerOutlined,
     FormOutlined,
+    EditOutlined,
+    DeleteOutlined,
 } from '@ant-design/icons'
 
 export const CONTENT_COMPONENT = {
@@ -35,6 +37,18 @@ export const CONTENT_COMPONENT = {
         ],
         contact: ['animal@gmail.com', '(+84) 90000000'],
         icons: [{ icon: FacebookOutlined }, { icon: GooglePlusOutlined }, { icon: GithubOutlined }],
+    },
+
+    navbarAdmin: {
+        listItem: [
+            { path: 'user', text: 'User' },
+            { path: 'animals', text: 'Animals' },
+            { path: 'animal-class', text: 'Animal Class' },
+            { path: 'familia', text: 'Familia' },
+            { path: 'ordo', text: 'Ordo' },
+            { path: 'phylum', text: 'Phylum' },
+            { path: 'regnum', text: 'Regnum' },
+        ],
     },
 }
 
@@ -124,5 +138,58 @@ export const CONTENT_DETAIL = {
     listAnimal: {
         title: 'Animals',
         descTitle: 'of the same kind',
+    },
+}
+
+export const CONTENT_ADMIN = {
+    component: {
+        actionList: [
+            {
+                key: 'edit',
+                icon: EditOutlined,
+            },
+
+            {
+                key: 'delete',
+                icon: DeleteOutlined,
+            },
+        ],
+    },
+
+    userPages: {
+        title: 'User',
+        textAddUser: 'Add User',
+        textEditUser: 'Edit User',
+        pathAddUser: 'add',
+        pageSize: 8,
+
+        search: {
+            placeholder: 'Find your animal',
+            icon: SearchOutlined,
+        },
+
+        columnsTable: [
+            {
+                title: 'ID',
+                dataIndex: '_id',
+                key: '_id',
+            },
+            {
+                title: 'Name',
+                dataIndex: 'name',
+                key: 'name',
+            },
+            {
+                title: 'Role',
+                dataIndex: 'role',
+                key: 'role',
+            },
+        ],
+
+        roles: [
+            { value: 'VIEWER', text: 'VIEWER' },
+            { value: 'EDITOR', text: 'EDITOR' },
+            { value: 'ADMIN', text: 'ADMIN' },
+        ],
     },
 }

@@ -10,9 +10,13 @@ const axiosClient = axios.create({
     paramsSerializer: (params) => queryString.stringify(params),
 })
 
-let refreshTokenRequest: any = null
-
 axiosClient.interceptors.request.use(async (config: any) => {
+    const token: string = localStorage.getItem('token') || ''
+
+    if (token) {
+        config.headers.Authorization = `Bearer ${token.substring(1, token.length - 1)}`
+    }
+
     return config
 })
 

@@ -27,6 +27,7 @@ function InputField(props: InputFieldProps) {
         <Form.Item
             help={submittedError || touchedError ? hasError : false}
             validateStatus={submittedError || touchedError ? 'error' : ''}
+            className={`${className}`}
         >
             {label && (
                 <label htmlFor={name} className={`${className}-label`}>

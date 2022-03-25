@@ -8,15 +8,14 @@ import NavbarCustom from './components/navbar'
 import UserLogout from './components/userLogout'
 import './header.scss'
 
-type IProps = {}
 const className = classComponent.header
 const content = CONTENT_COMPONENT.header
 
-function Header(props: IProps) {
-    const {} = props
+function Header() {
     const [user, setUser] = useRecoilState(userState)
     const handleLogout = () => {
-        setUser({ isLogin: false })
+        localStorage.clear()
+        setUser({ ...user, isLogin: false })
     }
 
     return (
@@ -30,7 +29,7 @@ function Header(props: IProps) {
                         className={`${className}__navbar`}
                         item={content.textLogout}
                         text={content.textUser}
-                        nameUser={'Henry'}
+                        nameUser={user.name}
                         handleLogout={handleLogout}
                     />
                 ) : (
