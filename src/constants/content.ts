@@ -223,6 +223,18 @@ export const CONTENT_ADMIN = {
         },
     },
 
+    phylum: {
+        title: 'Phylum',
+        textAdd: 'Add phylum',
+        textEdit: 'Edit phylum',
+        pageSize: 8,
+
+        search: {
+            placeholder: 'Find phylum',
+            icon: SearchOutlined,
+        },
+    },
+
     columnsTableTemp: [
         {
             title: 'Name',
