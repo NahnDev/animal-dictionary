@@ -235,6 +235,18 @@ export const CONTENT_ADMIN = {
         },
     },
 
+    regnum: {
+        title: 'Regnum',
+        textAdd: 'Add regnum',
+        textEdit: 'Edit regnum',
+        pageSize: 8,
+
+        search: {
+            placeholder: 'Find regnum',
+            icon: SearchOutlined,
+        },
+    },
+
     columnsTableTemp: [
         {
             title: 'Name',
