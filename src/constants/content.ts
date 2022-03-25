@@ -199,6 +199,18 @@ export const CONTENT_ADMIN = {
         },
     },
 
+    familia: {
+        title: 'Familia',
+        textAdd: 'Add familia',
+        textEdit: 'Edit familia',
+        pageSize: 8,
+
+        search: {
+            placeholder: 'Find familia',
+            icon: SearchOutlined,
+        },
+    },
+
     columnsTableTemp: [
         {
             title: 'Name',

@@ -50,7 +50,7 @@ function AnimalClassPage() {
             const response = await animalClsApi.deleteAnimalCls(_id)
             if (response) {
                 getAllAnimalClass()
-                openNotificationWithIcon('success', 'Delete user successfully', '')
+                openNotificationWithIcon('success', 'Delete animal class successfully', '')
             }
         } catch (error: any) {
             console.log(error)
