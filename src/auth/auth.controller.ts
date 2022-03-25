@@ -1,5 +1,5 @@
 import { Body, Controller, Post, UseGuards } from '@nestjs/common';
-import { ApiOkResponse } from '@nestjs/swagger';
+import { ApiOkResponse, ApiProperty } from '@nestjs/swagger';
 import { PublicApi } from 'src/decorators/public-api.decorator';
 import { RequestUser } from 'src/decorators/request-user.decorator';
 import { User } from 'src/user/schemas/user.schema';
@@ -9,7 +9,9 @@ import { LoginDto } from './dto/login.dto';
 import { LocalGuard } from './guards/local.guard';
 
 class LoginResponseType {
+  @ApiProperty()
   user: User;
+  @ApiProperty()
   accessToken: string;
 }
 

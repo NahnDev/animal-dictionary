@@ -18,6 +18,7 @@ import { JwtGuard } from 'src/auth/guards/jwt.guard';
 import { RequireRole } from 'src/decorators/require-role.decorator';
 import { USER_ROLE } from 'src/enum/USER_ROLE';
 import { ApiBearerAuth, ApiOkResponse } from '@nestjs/swagger';
+import { PublicApi } from 'src/decorators/public-api.decorator';
 
 export abstract class ScienceInfoController {
   constructor(
@@ -29,7 +30,6 @@ export abstract class ScienceInfoController {
 
   @ApiOkResponse({ type: Science })
   @ApiBearerAuth()
-  @UseGuards(JwtGuard)
   @RequireRole([USER_ROLE.ADMIN, USER_ROLE.EDITOR])
   @Post()
   async create(@Body() createDto: CreateScienceDto) {
@@ -37,6 +37,7 @@ export abstract class ScienceInfoController {
   }
 
   @ApiOkResponse({ type: [Science] })
+  @PublicApi()
   @Get()
   async getAll(@Query('page') pageQuery?: string) {
     const page = Number(pageQuery) || 0;
@@ -44,6 +45,7 @@ export abstract class ScienceInfoController {
   }
 
   @ApiOkResponse({ type: Science })
+  @PublicApi()
   @Get(':idOrName')
   async getOne(@Param('idOrName') idOrName: string) {
     if (Types.ObjectId.isValid(idOrName)) {
@@ -55,7 +57,6 @@ export abstract class ScienceInfoController {
 
   @ApiOkResponse({ type: Science })
   @ApiBearerAuth()
-  @UseGuards(JwtGuard)
   @RequireRole([USER_ROLE.ADMIN, USER_ROLE.EDITOR])
   @Patch(':id')
   async updateOne(
@@ -66,7 +67,6 @@ export abstract class ScienceInfoController {
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtGuard)
   @RequireRole([USER_ROLE.ADMIN, USER_ROLE.EDITOR])
   @Delete(':id')
   async removeOne(@Param('id') id: string) {

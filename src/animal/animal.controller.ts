@@ -9,8 +9,14 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOkResponse,
+  ApiQuery,
+  ApiTags,
+} from '@nestjs/swagger';
 import { JwtGuard } from 'src/auth/guards/jwt.guard';
+import { PublicApi } from 'src/decorators/public-api.decorator';
 import { RequireRole } from 'src/decorators/require-role.decorator';
 import { USER_ROLE } from 'src/enum/USER_ROLE';
 import { AnimalService } from './animal.service';
@@ -25,7 +31,6 @@ export class AnimalController {
 
   @ApiOkResponse({ type: Animal })
   @ApiBearerAuth()
-  @UseGuards(JwtGuard)
   @RequireRole([USER_ROLE.ADMIN, USER_ROLE.EDITOR])
   @Post()
   async create(@Body() createAnimalDto: CreateAnimalDto) {
@@ -33,18 +38,23 @@ export class AnimalController {
   }
 
   @ApiOkResponse({ type: [Animal] })
+  @PublicApi()
+  @ApiQuery({ type: 'string', name: 'familia', required: false })
+  @ApiQuery({ type: 'string', name: 'ordo', required: false })
+  @ApiQuery({ type: 'string', name: 'animalCls', required: false })
   @Get()
   async findAll(
     @Query('page') pageQuery: string,
-    @Query('familia') familia: string,
-    @Query('ordo') ordo: string,
-    @Query('animalCls') animalCls: string,
+    @Query('familia') familia?: string,
+    @Query('ordo') ordo?: string,
+    @Query('animalCls') animalCls?: string,
   ) {
     const page = Number(pageQuery) || 0;
     return await this.animalService.findAll(page, familia, ordo, animalCls);
   }
 
   @ApiOkResponse({ type: Animal })
+  @PublicApi()
   @Get(':id')
   async findOne(@Param('id') id: string) {
     return await this.animalService.findOne(id);
@@ -52,7 +62,6 @@ export class AnimalController {
 
   @ApiOkResponse({ type: Animal })
   @ApiBearerAuth()
-  @UseGuards(JwtGuard)
   @RequireRole([USER_ROLE.ADMIN, USER_ROLE.EDITOR])
   @Patch(':id')
   async update(
@@ -64,7 +73,6 @@ export class AnimalController {
 
   @ApiOkResponse({ type: Animal })
   @ApiBearerAuth()
-  @UseGuards(JwtGuard)
   @RequireRole([USER_ROLE.ADMIN, USER_ROLE.EDITOR])
   @Delete(':id')
   async remove(@Param('id') id: string) {
