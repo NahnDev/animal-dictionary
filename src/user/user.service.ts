@@ -41,7 +41,8 @@ export class UserService implements OnApplicationBootstrap {
   }
 
   async update(_id: string, updateUserDto: UpdateUserDto): Promise<User> {
-    updateUserDto.password = await this.passHash(updateUserDto.password);
+    if (updateUserDto.password)
+      updateUserDto.password = await this.passHash(updateUserDto.password);
     await this.userModel.updateOne({ _id }, updateUserDto);
     return await this.findOne(_id);
   }
