@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ApiProperty } from '@nestjs/swagger';
-import { plainToInstance } from 'class-transformer';
+import { plainToInstance, Type } from 'class-transformer';
 import { SchemaTypes } from 'mongoose';
 import { ExposeId } from 'src/helper/expose-id.decorator';
 import { AnimalCls } from '../../science-info/schemas/animalCls.schema';
@@ -9,6 +9,8 @@ import { Familia } from '../../science-info/schemas/familia.schema';
 import { Ordo } from '../../science-info/schemas/ordo.schema';
 import { Phylum } from '../../science-info/schemas/phylum.schema';
 import { Regnum } from '../../science-info/schemas/regnum.schema';
+import { User, UserSchema } from 'src/user/schemas/user.schema';
+import { Transform } from 'class-transformer';
 
 @Schema()
 export class Animal {
@@ -28,6 +30,7 @@ export class Animal {
   @Prop({ type: String, required: true })
   scienceName: string;
 
+  @Type(()=>Regnum)
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -37,6 +40,8 @@ export class Animal {
   })
   regnum: Regnum;
 
+  
+  @Type(()=>Phylum)
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -46,6 +51,8 @@ export class Animal {
   })
   phylum: Phylum;
 
+  
+  @Type(()=>AnimalCls)
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -55,6 +62,8 @@ export class Animal {
   })
   animalCls: AnimalCls;
 
+ 
+  @Type(()=>Ordo) 
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -64,6 +73,8 @@ export class Animal {
   })
   ordo: Ordo;
 
+  
+  @Type(()=>Familia)
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -134,6 +145,8 @@ export class Animal {
   @Prop({ type: Number, required: true })
   collAt: number;
 
+ 
+  @Type(()=>User) 
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -142,7 +155,7 @@ export class Animal {
     ref: 'User',
     autopopulate: true,
   })
-  createBy: string;
+  createBy: User;
 
   @ApiProperty()
   @Prop({ type: Number, default: Date.now, required: true , immutable: true})

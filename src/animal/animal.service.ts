@@ -20,8 +20,12 @@ export class AnimalService {
   }
 
   async findAll(page = 0, familia?: string, ordo?: string, animalCls?: string) {
+    const filter = { familia, ordo, animalCls }
+    if(!filter.animalCls) delete filter.animalCls
+    if(!filter.familia) delete filter.familia
+      if(!filter.ordo) delete filter.ordo 
     const animalDoc = await this.animalModel
-      .find({ familia, ordo, animalCls })
+      .find()
       .skip(page * ITEM_OF_PAGE)
       .limit(ITEM_OF_PAGE);
     return animalDoc.map((doc) => doc.toJSON());

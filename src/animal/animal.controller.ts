@@ -53,6 +53,8 @@ export class AnimalController {
     @Query('animalCls') animalCls?: string,
   ) {
     const page = Number(pageQuery) || 0;
+    console.log(familia, ordo, animalCls);
+    
     return await this.animalService.findAll(page, familia, ordo, animalCls);
   }
 
