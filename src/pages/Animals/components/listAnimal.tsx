@@ -9,7 +9,7 @@ type IProps = {
 function ListAnimal(props: IProps) {
     const { className, data } = props
     return (
-        <Row justify="center" className={`${className}`}>
+        <Row className={`${className}`}>
             {data.map((animal: any, index: number) => {
                 return (
                     <CardAnimal

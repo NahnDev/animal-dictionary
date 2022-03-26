@@ -1,11 +1,12 @@
 import { Col, Row } from 'antd'
 import { Link } from 'react-router-dom'
 import CardAnimal from '../../../components/cardAnimal'
+import { Animal } from '../../../types/Animal'
 
 type IProps = {
     className: string
     content: any
-    listAnimal: Array<{ title: string; name: string; desc: string; url: string }>
+    listAnimal: Array<Animal>
 }
 
 function ListAnimal(props: IProps) {
@@ -23,7 +24,8 @@ function ListAnimal(props: IProps) {
                 </Row>
                 <Row justify="center">
                     {listAnimal.map((animal: any, index: any) => {
-                        return <CardAnimal className={`${className}--card`} animal={animal} />
+                        if (index < 3)
+                            return <CardAnimal className={`${className}--card`} animal={animal} />
                     })}
                 </Row>
                 <Row justify="center">

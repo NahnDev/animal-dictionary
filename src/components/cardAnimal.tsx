@@ -1,29 +1,44 @@
 import { Col, Row } from 'antd'
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { useSetRecoilState } from 'recoil'
+import { currentAnimalState } from '../recoil/currentAnimalState'
+import { Animal } from '../types/Animal'
 
 type IProps = {
     className: string
-    animal: any
+    animal: Animal
 }
 
 function CardAnimal(props: IProps) {
     const { className, animal } = props
+    const setCurrenAnimal = useSetRecoilState(currentAnimalState)
+
     return (
         <Col className={`${className}`}>
             <Row justify="center">
-                <img className={`${className}-img`} src={animal.url} alt={animal.name} />
+                <img className={`${className}-img`} src={animal.images[0]} alt={animal.name} />
             </Row>
             <Row justify="center">
-                <span className={`${className}-title`}>{animal.title}</span>
+                <span className={`${className}-title`}>{animal.name}</span>
             </Row>
             <Row justify="center">
-                <span className={`${className}-name`}>{animal.name}</span>
+                <span className={`${className}-name`}>{animal.scienceName}</span>
             </Row>
             <Row justify="center">
-                <span className={`${className}-desc`}>{animal.desc}</span>
+                <span className={`${className}-desc`}>{animal.ecological}</span>
             </Row>
             <Row justify="center">
-                <button className={`${className}-btn`}>learn more</button>
+                <Link
+                    to={`/animals/${animal._id}`}
+                    onClick={() => {
+                        window.scrollTo(0, 0)
+                        setCurrenAnimal(animal)
+                    }}
+                    className={`${className}-btn`}
+                >
+                    learn more
+                </Link>
             </Row>
         </Col>
     )

@@ -1,12 +1,13 @@
 import { Col, Row } from 'antd'
 import CardAnimal from '../../../components/cardAnimal'
+import { Animal } from '../../../types/Animal'
 import Search from './search'
 
 type IProps = {
     content: any
     className: string
 
-    listAnimal: Array<{ title: string; name: string; desc: string; url: string }>
+    listAnimal: Array<Animal>
 }
 
 function Landing(props: IProps) {
@@ -20,7 +21,8 @@ function Landing(props: IProps) {
 
                 <Row>
                     {listAnimal.map((animal, index) => {
-                        return <CardAnimal animal={animal} className={`${className}--card`} />
+                        if (index < 3)
+                            return <CardAnimal animal={animal} className={`${className}--card`} />
                     })}
                 </Row>
             </Col>

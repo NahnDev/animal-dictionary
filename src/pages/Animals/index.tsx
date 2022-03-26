@@ -7,6 +7,9 @@ import { CONTENT_ANIMALS } from '../../constants/content'
 
 import './animals.scss'
 import { useEffect } from 'react'
+import { useRecoilState } from 'recoil'
+import { animalsState } from '../../recoil/animalsState'
+import animalsApi from '../../api/animalsApi'
 
 type IProps = {}
 
@@ -14,12 +17,28 @@ const className = classFeature.animals
 const content = CONTENT_ANIMALS
 
 function Animals(props: IProps) {
+    const [animals, setAnimals] = useRecoilState(animalsState)
+
     const handleFilter = (value: any) => {
         console.log(value)
     }
 
+    const getAnimal = async () => {
+        try {
+            const params = {}
+            const response = await animalsApi.getAnimal(params)
+            setAnimals(response)
+        } catch (error: any) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         window.scrollTo(0, 0)
+
+        if (animals.length === 0) {
+            getAnimal()
+        }
     }, [])
     return (
         <Row className={`${className}`}>
@@ -32,67 +51,10 @@ function Animals(props: IProps) {
                     contentSearch={content.search}
                     contentFilter={content.filter}
                 />
-                <ListAnimal className={`${className}__list`} data={valueTest} />
+                <ListAnimal className={`${className}__list`} data={animals} />
             </Col>
         </Row>
     )
 }
-
-const valueTest = [
-    {
-        title: 'Nhái bầu heymon',
-        url: 'https://f5-zpcloud.zdn.vn/711969319811978783/145a22b183294c771538.jpg',
-        name: 'Microhyla heymonsii Vogt, 1911',
-        desc: 'Sống ở các vực nước (ao, vũng...) có nhiều bùn và lá mục, hay các khu vực đất nông nghiệp. Thức ăn gồm côn trùng, giun đất, nhện và những loài không xương sống nhỏ khác.',
-    },
-    {
-        title: 'Nhái bầu heymon',
-        url: 'https://f5-zpcloud.zdn.vn/711969319811978783/145a22b183294c771538.jpg',
-        name: 'Microhyla heymonsii Vogt, 1911',
-        desc: 'Sống ở các vực nước (ao, vũng...) có nhiều bùn và lá mục, hay các khu vực đất nông nghiệp. Thức ăn gồm côn trùng, giun đất, nhện và những loài không xương sống nhỏ khác.',
-    },
-    {
-        title: 'Nhái bầu heymon',
-        url: 'https://f5-zpcloud.zdn.vn/711969319811978783/145a22b183294c771538.jpg',
-        name: 'Microhyla heymonsii Vogt, 1911',
-        desc: 'Sống ở các vực nước (ao, vũng...) có nhiều bùn và lá mục, hay các khu vực đất nông nghiệp. Thức ăn gồm côn trùng, giun đất, nhện và những loài không xương sống nhỏ khác.',
-    },
-    {
-        title: 'Nhái bầu heymon',
-        url: 'https://f5-zpcloud.zdn.vn/711969319811978783/145a22b183294c771538.jpg',
-        name: 'Microhyla heymonsii Vogt, 1911',
-        desc: 'Sống ở các vực nước (ao, vũng...) có nhiều bùn và lá mục, hay các khu vực đất nông nghiệp. Thức ăn gồm côn trùng, giun đất, nhện và những loài không xương sống nhỏ khác.',
-    },
-    {
-        title: 'Nhái bầu heymon',
-        url: 'https://f5-zpcloud.zdn.vn/711969319811978783/145a22b183294c771538.jpg',
-        name: 'Microhyla heymonsii Vogt, 1911',
-        desc: 'Sống ở các vực nước (ao, vũng...) có nhiều bùn và lá mục, hay các khu vực đất nông nghiệp. Thức ăn gồm côn trùng, giun đất, nhện và những loài không xương sống nhỏ khác.',
-    },
-    {
-        title: 'Nhái bầu heymon',
-        url: 'https://f5-zpcloud.zdn.vn/711969319811978783/145a22b183294c771538.jpg',
-        name: 'Microhyla heymonsii Vogt, 1911',
-        desc: 'Sống ở các vực nước (ao, vũng...) có nhiều bùn và lá mục, hay các khu vực đất nông nghiệp. Thức ăn gồm côn trùng, giun đất, nhện và những loài không xương sống nhỏ khác.',
-    },
-    {
-        title: 'Nhái bầu heymon',
-        url: 'https://f5-zpcloud.zdn.vn/711969319811978783/145a22b183294c771538.jpg',
-        name: 'Microhyla heymonsii Vogt, 1911',
-        desc: 'Sống ở các vực nước (ao, vũng...) có nhiều bùn và lá mục, hay các khu vực đất nông nghiệp. Thức ăn gồm côn trùng, giun đất, nhện và những loài không xương sống nhỏ khác.',
-    },
-    {
-        title: 'Nhái bầu heymon',
-        url: 'https://f5-zpcloud.zdn.vn/711969319811978783/145a22b183294c771538.jpg',
-        name: 'Microhyla heymonsii Vogt, 1911',
-        desc: 'Sống ở các vực nước (ao, vũng...) có nhiều bùn và lá mục, hay các khu vực đất nông nghiệp. Thức ăn gồm côn trùng, giun đất, nhện và những loài không xương sống nhỏ khác.',
-    },
-    {
-        title: 'Nhái bầu heymon',
-        url: 'https://f5-zpcloud.zdn.vn/711969319811978783/145a22b183294c771538.jpg',
-        name: 'Microhyla heymonsii Vogt, 1911',
-        desc: 'Sống ở các vực nước (ao, vũng...) có nhiều bùn và lá mục, hay các khu vực đất nông nghiệp. Thức ăn gồm côn trùng, giun đất, nhện và những loài không xương sống nhỏ khác.',
-    },
-]
 
 export default Animals
