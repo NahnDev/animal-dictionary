@@ -8,6 +8,7 @@ import {
   Delete,
   Query,
   UseGuards,
+  Req,
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
@@ -15,10 +16,12 @@ import {
   ApiQuery,
   ApiTags,
 } from '@nestjs/swagger';
+import { Request } from 'express';
 import { JwtGuard } from 'src/auth/guards/jwt.guard';
 import { PublicApi } from 'src/decorators/public-api.decorator';
 import { RequireRole } from 'src/decorators/require-role.decorator';
 import { USER_ROLE } from 'src/enum/USER_ROLE';
+import { User } from 'src/user/schemas/user.schema';
 import { AnimalService } from './animal.service';
 import { CreateAnimalDto } from './dto/create-animal.dto';
 import { UpdateAnimalDto } from './dto/update-animal.dto';
@@ -33,8 +36,8 @@ export class AnimalController {
   @ApiBearerAuth()
   @RequireRole([USER_ROLE.ADMIN, USER_ROLE.EDITOR])
   @Post()
-  async create(@Body() createAnimalDto: CreateAnimalDto) {
-    return await this.animalService.create(createAnimalDto);
+  async create(@Body() createAnimalDto: CreateAnimalDto, @Req() req: Request & {user: User}) {
+    return await this.animalService.create(createAnimalDto, req.user);
   }
 
   @ApiOkResponse({ type: [Animal] })

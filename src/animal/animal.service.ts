@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { ITEM_OF_PAGE } from 'src/constants/ITEM_OF_PAGE';
+import { User } from 'src/user/schemas/user.schema';
 import { CreateAnimalDto } from './dto/create-animal.dto';
 import { UpdateAnimalDto } from './dto/update-animal.dto';
 import { Animal, AnimalDoc } from './schema/animal.schema';
@@ -12,8 +13,8 @@ export class AnimalService {
     @InjectModel(Animal.name) private readonly animalModel: Model<AnimalDoc>,
   ) {}
 
-  async create(createAnimalDto: CreateAnimalDto) {
-    const animal = new this.animalModel(createAnimalDto);
+  async create(createAnimalDto: CreateAnimalDto, actor: User) {
+    const animal = new this.animalModel({...createAnimalDto, createBy: actor._id});
     await animal.save();
     return animal.toJSON();
   }
@@ -25,6 +26,8 @@ export class AnimalService {
       .limit(ITEM_OF_PAGE);
     return animalDoc.map((doc) => doc.toJSON());
   }
+
+  
 
   async findOne(id: string) {
     const animalDoc = await this.animalModel.findById(id);

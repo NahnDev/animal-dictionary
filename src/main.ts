@@ -10,7 +10,7 @@ async function bootstrap() {
     origin: ['*'],
   });
 
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({whitelist: true}));
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
   const config = new DocumentBuilder()
     .setTitle('API Animal directory')

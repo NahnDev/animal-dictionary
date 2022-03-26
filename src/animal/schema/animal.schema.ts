@@ -138,13 +138,14 @@ export class Animal {
   @Prop({
     type: SchemaTypes.ObjectId,
     required: true,
+    immutable: true,
     ref: 'User',
     autopopulate: true,
   })
   createBy: string;
 
   @ApiProperty()
-  @Prop({ type: Number, default: Date.now, required: true })
+  @Prop({ type: Number, default: Date.now, required: true , immutable: true})
   createAt: number;
 }
 
