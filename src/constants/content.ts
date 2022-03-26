@@ -156,6 +156,58 @@ export const CONTENT_ADMIN = {
         ],
     },
 
+    animals: {
+        title: 'Animal',
+        textAdd: 'Add animal',
+        textEdit: 'Edit animal',
+        pageSize: 3,
+
+        search: {
+            placeholder: 'Find animal',
+            icon: SearchOutlined,
+        },
+
+        columnsTable: [
+            {
+                title: 'Name',
+                dataIndex: 'name',
+                key: 'name',
+                width: 200,
+            },
+            {
+                title: 'Name Plate',
+                dataIndex: 'nameplate',
+                key: 'nameplate',
+                width: 200,
+            },
+            {
+                title: 'Science Name',
+                dataIndex: 'scienceName',
+                key: 'scienceName',
+                width: 300,
+            },
+
+            {
+                title: 'Morphological',
+                dataIndex: 'morphological',
+                key: 'morphological',
+                width: 900,
+            },
+            {
+                title: 'Ecological',
+                dataIndex: 'ecological',
+                key: 'ecological',
+                width: 400,
+            },
+        ],
+
+        roles: [
+            { value: 'VIEWER', text: 'VIEWER' },
+            { value: 'EDITOR', text: 'EDITOR' },
+            { value: 'ADMIN', text: 'ADMIN' },
+        ],
+    },
+
     userPages: {
         title: 'User',
         textAddUser: 'Add User',

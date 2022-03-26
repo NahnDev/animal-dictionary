@@ -30,7 +30,7 @@ function RegnumAddEdit(props: IProps) {
                 <Row align="middle" className={`${className}__head`}>
                     <Col>
                         <span className={`${className}__head--title`}>
-                            {isAddMode ? content.textAdd : content.textAdd}
+                            {isAddMode ? content.textAdd : content.textEdit}
                         </span>
                     </Col>
                 </Row>

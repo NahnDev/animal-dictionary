@@ -12,12 +12,14 @@ type IProps = {
     handleAction: Function
     isHaveImage?: boolean
     pageSize?: number
+
+    scrollX?: number
 }
 
 const className = classFeature.admin
 
 function TableCustom(props: IProps) {
-    const { dataSource, columns, handleTableChange, handleAction, isHaveImage, pageSize } = props
+    const { dataSource, columns, handleTableChange, handleAction, scrollX, pageSize } = props
 
     return (
         <Row>
@@ -25,7 +27,7 @@ function TableCustom(props: IProps) {
                 dataSource={dataSource}
                 size={'small'}
                 pagination={{ pageSize: pageSize || 6 }}
-                scroll={{ y: 300 }}
+                scroll={scrollX ? { x: scrollX, y: 400 } : { y: 400 }}
                 onChange={(value) => handleTableChange(value)}
                 className={`${className}__table`}
             >

@@ -2,16 +2,16 @@ import { Coordinate } from './Coordinate'
 import { AnimalCls, Familia, Ordo, Phylum, Regnum } from './ScienceInfo'
 
 export type Animal = {
-    _id: string
+    _id?: string
     name: string
     nameplate: string
     scienceName: string
-    regnum: Regnum
-    phylum: Phylum
-    animalCls: AnimalCls
-    ordo: Ordo
-    familia: Familia
-    images: [string]
+    regnum: Regnum | string
+    phylum: Phylum | string
+    animalCls: AnimalCls | string
+    ordo: Ordo | string
+    familia: Familia | string
+    images: Array<string>
     coordinate: Coordinate[]
 
     morphological: string
@@ -27,6 +27,6 @@ export type Animal = {
     place: string
     collBy: string
     collAt: number
-    createBy: string
-    createAt: number
+    createBy?: string
+    createAt?: number
 }
