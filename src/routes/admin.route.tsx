@@ -2,6 +2,7 @@ import { RouteProps } from 'react-router-dom'
 import AnimalClassPage from '../pages/Admin/features/animalCls'
 import AnimalsPage from '../pages/Admin/features/animals'
 import FamiliaPage from '../pages/Admin/features/familia'
+import ImportPage from '../pages/Admin/features/import'
 import OrdoPage from '../pages/Admin/features/ordo'
 import PhylumPage from '../pages/Admin/features/phylum'
 import RegnumPage from '../pages/Admin/features/regnum'
@@ -36,4 +37,8 @@ export const ADMIN_ROUTE: RouteProps[] = [
         path: '/user/*',
         element: <UserPage />,
     },
+    {
+        path: '/import/*',
+        element: <ImportPage></ImportPage>
+    }
 ]

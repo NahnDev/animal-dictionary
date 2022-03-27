@@ -1,0 +1,22 @@
+@import '/src/assets/style/colors';
+
+.ImportPage {
+    input[type='file'] {
+        display: none;
+    }
+    button {
+        label {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    button {
+        border-radius: 1em;
+        background-color: $color_celadon;
+        padding: 1em;
+    }
+    .button {
+        background-color: $color_celadon;
+    }
+}

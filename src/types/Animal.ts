@@ -5,7 +5,7 @@ export type Animal = {
     _id?: string
     name: string
     nameplate: string
-    scienceName: string
+    scienceName: string //
     regnum: Regnum | string
     phylum: Phylum | string
     animalCls: AnimalCls | string

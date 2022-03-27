@@ -48,6 +48,7 @@ export const CONTENT_COMPONENT = {
             { path: 'ordo', text: 'Ordo' },
             { path: 'phylum', text: 'Phylum' },
             { path: 'regnum', text: 'Regnum' },
+            { path: 'import', text: 'Import' },
         ],
     },
 }
