@@ -27,7 +27,7 @@ function NavbarAdmin(props: IProps) {
                             <Link
                                 to={val.path}
                                 className={
-                                    pathName === val.path
+                                    val.path.indexOf(pathName) !== -1
                                         ? `${className}--item active`
                                         : `${className}--item`
                                 }

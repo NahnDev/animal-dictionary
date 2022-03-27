@@ -117,6 +117,7 @@ function AnimalsPage() {
                 if (typeof value.value.familia !== 'string') {
                     value.value.familia = value.value.familia._id || ''
                 }
+                value.value.collAt = moment(value.value.collAt)
                 nav(`/admin/animals/${value.value._id}`)
                 break
             case 'delete':

@@ -9,6 +9,7 @@ import {
     FormOutlined,
     EditOutlined,
     DeleteOutlined,
+    FilterOutlined,
 } from '@ant-design/icons'
 
 export const CONTENT_COMPONENT = {
@@ -16,7 +17,7 @@ export const CONTENT_COMPONENT = {
         titleLogo: 'Animals',
         navbar: [
             { path: '/home', text: 'Home' },
-            { path: '/home', text: 'How it work' },
+            { path: '/animals', text: 'Animals' },
             { path: '/about', text: 'About us' },
             { path: '/login', text: 'Login' },
         ],
@@ -117,8 +118,10 @@ export const CONTENT_ANIMALS = {
     },
 
     filter: {
-        defaultValue: 'all',
-        defaultValueLabel: 'All',
+        iconFilter: FilterOutlined,
+        titleFamilia: 'Familia',
+        titleOrdo: 'Ordo',
+        titleClass: 'Class',
     },
 }
 

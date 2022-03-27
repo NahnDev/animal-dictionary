@@ -1,8 +1,6 @@
+import { DatePicker, Form } from 'antd'
 import moment from 'moment'
 
-import { DatePicker, Form } from 'antd'
-
-import './DateField.scss'
 
 type DateFieldProps = {
     field: any

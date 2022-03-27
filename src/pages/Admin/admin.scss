@@ -87,6 +87,24 @@
 
                 border-bottom: 1px solid $color_eerie_black;
             }
+
+            &-btn {
+                padding: 0.2rem 1.5rem;
+                margin: 0 2rem;
+                color: $color_eerie_black;
+                border: 1px solid $color_eerie_black;
+                border-radius: 20px;
+
+                transition: all 750ms;
+
+                &:hover,
+                &:focus {
+                    color: $color_white;
+                    background-color: $color_eerie_black;
+
+                    transition: all 750ms;
+                }
+            }
         }
 
         &--btn {

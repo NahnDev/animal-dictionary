@@ -1,5 +1,4 @@
 import { Col, Row } from 'antd'
-import { useState } from 'react'
 import Search from './search'
 import SelectFilter from './selectFilter'
 
@@ -16,10 +15,6 @@ type IProps = {
 
 function Filter(props: IProps) {
     const { title, desc, className, contentSearch, contentFilter, handleFilter } = props
-    const [valueFilter, setValueFilter] = useState<{ search: string; select: string }>({
-        search: '',
-        select: '',
-    })
 
     return (
         <Row justify="space-between" align="middle">
@@ -29,20 +24,16 @@ function Filter(props: IProps) {
             </Col>
 
             <Col>
-                <Row onMouseLeave={() => handleFilter(valueFilter)}>
+                <Row>
                     <Search
-                        handleFilter={(val: string) =>
-                            setValueFilter({ ...valueFilter, search: val })
-                        }
                         className={`${className}--search`}
                         content={contentSearch}
+                        handleFilter={handleFilter}
                     />
                     <SelectFilter
-                        handleFilter={(val: string) =>
-                            setValueFilter({ ...valueFilter, select: val })
-                        }
                         className={`${className}--select`}
                         content={contentFilter}
+                        handleFilter={handleFilter}
                     />
                 </Row>
             </Col>

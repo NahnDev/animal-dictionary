@@ -1,6 +1,5 @@
 import { Carousel, Col, Row } from 'antd'
 import { CarouselRef } from 'antd/lib/carousel'
-import { valueType } from 'antd/lib/statistic/utils'
 import React, { useRef, useState } from 'react'
 
 type IProps = {
@@ -10,7 +9,7 @@ type IProps = {
 
 function Images(props: IProps) {
     const { className, listImage } = props
-    const [imageCurrent, setImageCurrent] = useState<valueType | undefined>(0)
+    const [imageCurrent, setImageCurrent] = useState<number>(0)
     const slider = useRef<CarouselRef | null>()
 
     return (
@@ -28,6 +27,7 @@ function Images(props: IProps) {
                             <img
                                 key={`carousel-${index}`}
                                 className={`${className}--carousel-img`}
+                                alt={`image-carousel-${index}`}
                                 src={url}
                             />
                         )
@@ -51,6 +51,7 @@ function Images(props: IProps) {
                                         setImageCurrent(index)
                                         slider.current?.goTo(index)
                                     }}
+                                    alt={`image-carousel-list-${index}`}
                                     className={`${className}--list-img`}
                                     src={url}
                                 />

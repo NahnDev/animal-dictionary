@@ -10,7 +10,6 @@ import { FormLoginUser } from '../../types/User'
 import FormLogin from './components/formLogin'
 import './login.scss'
 
-
 const className = classFeature.login
 const content = CONTENT_LOGIN
 

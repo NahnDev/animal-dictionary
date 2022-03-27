@@ -11,7 +11,9 @@ const className = classFeature.admin
 function Admin() {
     return (
         <Row justify="center">
-            <Header />
+            <Col xs={20}>
+                <Header />
+            </Col>
 
             <Col xs={20}>
                 <Row className={`${className}`}>

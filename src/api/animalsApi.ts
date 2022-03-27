@@ -7,9 +7,9 @@ const animalsApi = {
         return axiosClient.post(url, data)
     },
 
-    getAnimal: () => {
+    getAnimal: (params?: any) => {
         const url = `/animal`
-        return axiosClient.get<any, Array<Animal>>(url)
+        return axiosClient.get<any, Array<Animal>>(url, { params })
     },
 
     getAnimalDetail: (_id: string) => {

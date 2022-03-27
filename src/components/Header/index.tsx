@@ -13,6 +13,7 @@ const content = CONTENT_COMPONENT.header
 
 function Header() {
     const [user, setUser] = useRecoilState(userState)
+
     const handleLogout = () => {
         localStorage.clear()
         setUser({ ...user, isLogin: false })

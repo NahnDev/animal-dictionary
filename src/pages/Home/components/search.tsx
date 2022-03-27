@@ -1,20 +1,40 @@
 import { Row } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 
 type IProps = {
     content: any
     className: string
+
+    onSearch?: Function
 }
 
 function Search(props: IProps) {
-    const { content, className } = props
+    const { content, className, onSearch } = props
+    const [searchValue, setSearchValue] = useState<string>()
     return (
-        <Row align="middle" justify="space-between" className={`${className}`}>
-            <input type="text" placeholder={content.placeholder} className={`${className}-input`} />
-            <span className={`${className}-icon`}>
-                <content.icon />
-            </span>
-        </Row>
+        <form
+            onSubmit={(e) => {
+                e.preventDefault()
+                onSearch && onSearch(searchValue)
+                setSearchValue('')
+            }}
+        >
+            <Row align="middle" justify="space-between" className={`${className}`}>
+                <input
+                    value={searchValue}
+                    type="text"
+                    name="search"
+                    placeholder={content.placeholder}
+                    className={`${className}-input`}
+                    onChange={(e) => {
+                        setSearchValue(e.target.value)
+                    }}
+                />
+                <button type="submit" className={`${className}-icon`}>
+                    <content.icon />
+                </button>
+            </Row>
+        </form>
     )
 }
 
