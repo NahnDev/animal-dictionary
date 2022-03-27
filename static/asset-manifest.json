@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.046d5232.css",
+    "main.js": "/static/js/main.f9b231fd.js",
+    "static/js/787.666b85f3.chunk.js": "/static/js/787.666b85f3.chunk.js",
+    "static/media/Nature-amico.png": "/static/media/Nature-amico.3f3aa272558972d9fd42.png",
+    "static/media/Nature-rafiki.png": "/static/media/Nature-rafiki.66c0bf5d750e4fe4b2ab.png",
+    "static/media/Ecosystem-bro.png": "/static/media/Ecosystem-bro.cc3bfbeff36558f6efbb.png",
+    "static/media/Montserrat-ExtraBold.ttf": "/static/media/Montserrat-ExtraBold.5daafc620ecc802516f9.ttf",
+    "static/media/Montserrat-Bold.ttf": "/static/media/Montserrat-Bold.63fae500fdcf19ce83d4.ttf",
+    "static/media/Montserrat-Light.ttf": "/static/media/Montserrat-Light.f0963fd9968fbd54cc35.ttf",
+    "static/media/Montserrat-Regular.ttf": "/static/media/Montserrat-Regular.ac98a5f5ca71180fe293.ttf",
+    "index.html": "/index.html",
+    "main.046d5232.css.map": "/static/css/main.046d5232.css.map",
+    "main.f9b231fd.js.map": "/static/js/main.f9b231fd.js.map",
+    "787.666b85f3.chunk.js.map": "/static/js/787.666b85f3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.046d5232.css",
+    "static/js/main.f9b231fd.js"
+  ]
+}

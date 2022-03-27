@@ -21,6 +21,7 @@ export class UserService implements OnApplicationBootstrap {
     createUserDto.password = await this.passHash(createUserDto.password);
     const userDoc = new this.userModel(createUserDto);
     await userDoc.save();
+    if (!userDoc) return null;
     return userDoc.toJSON();
   }
 
