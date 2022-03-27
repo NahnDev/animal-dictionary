@@ -5,6 +5,7 @@ import userApi from '../../api/userApi'
 import { classFeature } from '../../constants/className'
 import { CONTENT_LOGIN } from '../../constants/content'
 import Images from '../../constants/images'
+import { searchState } from '../../recoil/searchState'
 import { userState } from '../../recoil/userState'
 import { FormLoginUser } from '../../types/User'
 import FormLogin from './components/formLogin'
@@ -15,6 +16,7 @@ const content = CONTENT_LOGIN
 
 function Login() {
     const setUser = useSetRecoilState(userState)
+    const setSearch = useSetRecoilState(searchState)
 
     const postLogin = async (value: FormLoginUser) => {
         try {
@@ -33,6 +35,7 @@ function Login() {
 
     useEffect(() => {
         window.scrollTo(0, 0)
+        setSearch({})
     }, [])
     return (
         <Row align="middle" className={`${className}`}>

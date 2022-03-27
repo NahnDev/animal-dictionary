@@ -105,6 +105,8 @@ function Animals() {
         }
     }, [search])
 
+    console.log(search)
+
     return (
         <Row className={`${className}`}>
             <Col xs={24}>

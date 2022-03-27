@@ -37,7 +37,12 @@ function Home() {
 
         animals.length &&
             animals.map((value) => {
-                if (value.name.indexOf(valueSearch) !== -1) return dataSearch.push(value)
+                if (
+                    value.name.indexOf(valueSearch) !== -1 ||
+                    value.nameplate.indexOf(valueSearch) !== -1 ||
+                    value.scienceName.indexOf(valueSearch) !== -1
+                )
+                    return dataSearch.push(value)
                 return true
             })
         setSearch({ filter: { search: valueSearch }, dataFilter: dataSearch })
@@ -49,6 +54,7 @@ function Home() {
         if (animals.length === 0) {
             getAnimal()
         }
+        setSearch({})
     }, [])
 
     return (
