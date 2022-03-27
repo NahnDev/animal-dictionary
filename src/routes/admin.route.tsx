@@ -7,33 +7,57 @@ import PhylumPage from '../pages/Admin/features/phylum'
 import RegnumPage from '../pages/Admin/features/regnum'
 import UserPage from '../pages/Admin/features/user'
 
-export const ADMIN_ROUTE: RouteProps[] = [
+export const ADMIN_ROUTE: Array<{
+    roles: Array<'ADMIN' | 'EDITOR' | 'VIEWER'>
+    router: RouteProps
+}> = [
     {
-        path: '/animals/*',
-        element: <AnimalsPage />,
+        roles: ['ADMIN', 'EDITOR'],
+        router: {
+            path: '/animals/*',
+            element: <AnimalsPage />,
+        },
     },
     {
-        path: '/animal-class/*',
-        element: <AnimalClassPage />,
+        roles: ['ADMIN', 'EDITOR'],
+        router: {
+            path: '/animal-class/*',
+            element: <AnimalClassPage />,
+        },
     },
     {
-        path: '/familia/*',
-        element: <FamiliaPage />,
+        roles: ['ADMIN', 'EDITOR'],
+        router: {
+            path: '/familia/*',
+            element: <FamiliaPage />,
+        },
     },
     {
-        path: '/ordo/*',
-        element: <OrdoPage />,
+        roles: ['ADMIN', 'EDITOR'],
+        router: {
+            path: '/ordo/*',
+            element: <OrdoPage />,
+        },
     },
     {
-        path: '/phylum/*',
-        element: <PhylumPage />,
+        roles: ['ADMIN', 'EDITOR'],
+        router: {
+            path: '/phylum/*',
+            element: <PhylumPage />,
+        },
     },
     {
-        path: '/regnum/*',
-        element: <RegnumPage />,
+        roles: ['ADMIN', 'EDITOR'],
+        router: {
+            path: '/regnum/*',
+            element: <RegnumPage />,
+        },
     },
     {
-        path: '/user/*',
-        element: <UserPage />,
+        roles: ['ADMIN'],
+        router: {
+            path: '/user/*',
+            element: <UserPage />,
+        },
     },
 ]

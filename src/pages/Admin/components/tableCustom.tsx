@@ -27,7 +27,7 @@ function TableCustom(props: IProps) {
                 dataSource={dataSource}
                 size={'small'}
                 pagination={{ pageSize: pageSize || 6 }}
-                scroll={scrollX ? { x: scrollX, y: 400 } : { y: 400 }}
+                scroll={scrollX ? { x: scrollX, y: 375 } : { y: 375 }}
                 onChange={(value) => handleTableChange(value)}
                 className={`${className}__table`}
             >

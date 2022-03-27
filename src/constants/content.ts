@@ -42,13 +42,13 @@ export const CONTENT_COMPONENT = {
 
     navbarAdmin: {
         listItem: [
-            { path: 'user', text: 'User' },
-            { path: 'animals', text: 'Animals' },
-            { path: 'animal-class', text: 'Animal Class' },
-            { path: 'familia', text: 'Familia' },
-            { path: 'ordo', text: 'Ordo' },
-            { path: 'phylum', text: 'Phylum' },
-            { path: 'regnum', text: 'Regnum' },
+            { path: 'user', text: 'User', roles: ['ADMIN'] },
+            { path: 'animals', text: 'Animals', roles: ['ADMIN', 'EDITOR'] },
+            { path: 'animal-class', text: 'Animal Class', roles: ['ADMIN', 'EDITOR'] },
+            { path: 'familia', text: 'Familia', roles: ['ADMIN', 'EDITOR'] },
+            { path: 'ordo', text: 'Ordo', roles: ['ADMIN', 'EDITOR'] },
+            { path: 'phylum', text: 'Phylum', roles: ['ADMIN', 'EDITOR'] },
+            { path: 'regnum', text: 'Regnum', roles: ['ADMIN', 'EDITOR'] },
         ],
     },
 }
