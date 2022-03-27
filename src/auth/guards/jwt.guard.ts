@@ -13,7 +13,6 @@ export class JwtGuard extends AuthGuard('jwt') {
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
     const a = super.canActivate(context);
-    console.log(context.switchToHttp().getRequest().user);
     return a;
   }
 }

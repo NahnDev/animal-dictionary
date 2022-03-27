@@ -14,24 +14,36 @@ export class AnimalService {
   ) {}
 
   async create(createAnimalDto: CreateAnimalDto, actor: User) {
-    const animal = new this.animalModel({...createAnimalDto, createBy: actor._id});
+    const animal = new this.animalModel({
+      ...createAnimalDto,
+      createBy: actor._id,
+    });
     await animal.save();
     return animal.toJSON();
   }
 
-  async findAll(page = 0, familia?: string, ordo?: string, animalCls?: string) {
-    const filter = { familia, ordo, animalCls }
-    if(!filter.animalCls) delete filter.animalCls
-    if(!filter.familia) delete filter.familia
-      if(!filter.ordo) delete filter.ordo 
+  async findAll(
+    page = 0,
+    search: string,
+    familia?: string,
+    ordo?: string,
+    animalCls?: string,
+  ) {
+    const filter = { familia, ordo, animalCls };
+    if (!filter.animalCls) delete filter.animalCls;
+    if (!filter.familia) delete filter.familia;
+    if (!filter.ordo) delete filter.ordo;
     const animalDoc = await this.animalModel
-      .find()
+      .find({
+        ...filter,
+        $text: {
+          $search: search,
+        },
+      }) //// ------------------------------
       .skip(page * ITEM_OF_PAGE)
       .limit(ITEM_OF_PAGE);
     return animalDoc.map((doc) => doc.toJSON());
   }
-
-  
 
   async findOne(id: string) {
     const animalDoc = await this.animalModel.findById(id);

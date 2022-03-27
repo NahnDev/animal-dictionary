@@ -36,26 +36,37 @@ export class AnimalController {
   @ApiBearerAuth()
   @RequireRole([USER_ROLE.ADMIN, USER_ROLE.EDITOR])
   @Post()
-  async create(@Body() createAnimalDto: CreateAnimalDto, @Req() req: Request & {user: User}) {
+  async create(
+    @Body() createAnimalDto: CreateAnimalDto,
+    @Req() req: Request & { user: User },
+  ) {
     return await this.animalService.create(createAnimalDto, req.user);
   }
 
   @ApiOkResponse({ type: [Animal] })
   @PublicApi()
+  @ApiQuery({ type: 'string', name: 'search', required: false })
   @ApiQuery({ type: 'string', name: 'familia', required: false })
   @ApiQuery({ type: 'string', name: 'ordo', required: false })
   @ApiQuery({ type: 'string', name: 'animalCls', required: false })
   @Get()
   async findAll(
     @Query('page') pageQuery: string,
+    @Query('search') searchQuery: string,
     @Query('familia') familia?: string,
     @Query('ordo') ordo?: string,
     @Query('animalCls') animalCls?: string,
   ) {
     const page = Number(pageQuery) || 0;
-    console.log(familia, ordo, animalCls);
-    
-    return await this.animalService.findAll(page, familia, ordo, animalCls);
+    const search = searchQuery || '';
+
+    return await this.animalService.findAll(
+      page,
+      search,
+      familia,
+      ordo,
+      animalCls,
+    );
   }
 
   @ApiOkResponse({ type: Animal })

@@ -21,21 +21,15 @@ export class PoliciesGuard implements CanActivate {
     private readonly jwtGuard: JwtGuard,
   ) {}
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    console.log(`Auth process`);
-    console.log(`- check public api ...`);
     // phan check public
     const publicApi = this.reflector.getAllAndOverride<string>(PUBLIC_API_KEY, [
       context.getClass(),
       context.getHandler(),
     ]);
     if (publicApi) return true;
-
-    console.log(' - check jwt ');
     // phan check jwt
     if (!(await this.jwtGuard.canActivate(context)))
       throw new HttpException('Please login', 401);
-
-    console.log(' - Check require role');
     // phan check role
     const requireRole = this.reflector.getAllAndOverride<USER_ROLE[]>(
       REQUIRE_ROLE_KEY,
@@ -43,11 +37,9 @@ export class PoliciesGuard implements CanActivate {
     );
     if (!requireRole) return true;
 
-    console.log(' - check role');
     const req = context.switchToHttp().getRequest() as Request & {
       user: User;
     };
-    console.log(req.user);
     if (!req.user) throw new HttpException('Please login', 401);
 
     const user = req.user;

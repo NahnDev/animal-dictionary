@@ -19,18 +19,18 @@ export class Animal {
   _id: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: true, text: true })
   name: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: true, text: true })
   nameplate: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: true, text: true })
   scienceName: string;
 
-  @Type(()=>Regnum)
+  @Type(() => Regnum)
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -40,8 +40,7 @@ export class Animal {
   })
   regnum: Regnum;
 
-  
-  @Type(()=>Phylum)
+  @Type(() => Phylum)
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -51,8 +50,7 @@ export class Animal {
   })
   phylum: Phylum;
 
-  
-  @Type(()=>AnimalCls)
+  @Type(() => AnimalCls)
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -62,8 +60,7 @@ export class Animal {
   })
   animalCls: AnimalCls;
 
- 
-  @Type(()=>Ordo) 
+  @Type(() => Ordo)
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -73,8 +70,7 @@ export class Animal {
   })
   ordo: Ordo;
 
-  
-  @Type(()=>Familia)
+  @Type(() => Familia)
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -145,8 +141,7 @@ export class Animal {
   @Prop({ type: Number, required: true })
   collAt: number;
 
- 
-  @Type(()=>User) 
+  @Type(() => User)
   @ApiProperty()
   @Prop({
     type: SchemaTypes.ObjectId,
@@ -158,7 +153,7 @@ export class Animal {
   createBy: User;
 
   @ApiProperty()
-  @Prop({ type: Number, default: Date.now, required: true , immutable: true})
+  @Prop({ type: Number, default: Date.now, required: true, immutable: true })
   createAt: number;
 }
 
