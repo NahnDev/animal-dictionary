@@ -1,7 +1,7 @@
 import { Col, Row } from 'antd'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import animalsApi from '../../api/animalsApi'
 import { classFeature } from '../../constants/className'
 import { CONTENT_DETAIL } from '../../constants/content'
@@ -11,8 +11,8 @@ import DescriptionsAnimal from './components/descriptions'
 import DetailAnimal from './components/detail'
 import Images from './components/images'
 import ListAnimal from './components/listAnimals'
-
 import './detail.scss'
+
 
 const className = classFeature.animalDetail
 const content = CONTENT_DETAIL

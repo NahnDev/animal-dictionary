@@ -12,12 +12,10 @@ import './animals.scss'
 import Filter from './components/filter'
 import ListAnimal from './components/listAnimal'
 
-type IProps = {}
-
 const className = classFeature.animals
 const content = CONTENT_ANIMALS
 
-function Animals(props: IProps) {
+function Animals() {
     const [animals, setAnimals] = useRecoilState(animalsState)
     const [search, setSearch] = useRecoilState(searchState)
 
@@ -46,6 +44,7 @@ function Animals(props: IProps) {
                     animals.map((val) => {
                         if (typeof val.familia !== 'string' && val.familia._id === value)
                             return dataSearch.push(val)
+                        return true
                     })
                 dataSearch?.length === 0 &&
                     openNotificationWithIcon('warning', 'No matching animals!!!', '')
@@ -57,6 +56,7 @@ function Animals(props: IProps) {
                     animals.map((val) => {
                         if (typeof val.ordo !== 'string' && val.ordo._id === value)
                             return dataSearch.push(val)
+                        return true
                     })
                 dataSearch?.length === 0 &&
                     openNotificationWithIcon('warning', 'No matching animals!!!', '')
@@ -68,6 +68,7 @@ function Animals(props: IProps) {
                     animals.map((val) => {
                         if (typeof val.animalCls !== 'string' && val.animalCls._id === value)
                             return dataSearch.push(val)
+                        return true
                     })
                 dataSearch?.length === 0 &&
                     openNotificationWithIcon('warning', 'No matching animals!!!', '')
@@ -83,6 +84,7 @@ function Animals(props: IProps) {
                             val.scienceName.indexOf(value) !== -1
                         )
                             return dataSearch.push(val)
+                        return true
                     })
 
                 filter.search = value

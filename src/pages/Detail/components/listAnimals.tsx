@@ -23,7 +23,14 @@ function ListAnimal(props: IProps) {
                 <Row justify="center">
                     {listAnimal.map((animal: any, index: any) => {
                         if (index < 3)
-                            return <CardAnimal className={`${className}--card`} animal={animal} />
+                            return (
+                                <CardAnimal
+                                    key={`list-animal-detail-${index}`}
+                                    className={`${className}--card`}
+                                    animal={animal}
+                                />
+                            )
+                        return true
                     })}
                 </Row>
             </Col>

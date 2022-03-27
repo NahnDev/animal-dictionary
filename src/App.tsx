@@ -42,8 +42,10 @@ function App() {
                         </Routes>
                     ) : (
                         <Row justify="center">
-                            <Col xs={18}>
+                            <Col xs={20}>
                                 <Header />
+                            </Col>
+                            <Col xs={18}>
                                 <Routes>
                                     <Route path="*" element={<Navigate to="/home" />} />
                                     {ROOT_ROUTE.map((prop, index) => (

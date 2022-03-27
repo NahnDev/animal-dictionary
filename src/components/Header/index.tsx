@@ -1,5 +1,4 @@
 import { Col, Row } from 'antd'
-import { useLocation } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { classComponent } from '../../constants/className'
 import { CONTENT_COMPONENT } from '../../constants/content'
@@ -19,8 +18,6 @@ function Header() {
         localStorage.clear()
         setUser({ ...user, isLogin: false })
     }
-
-
 
     return (
         <Row justify="space-between" className={`${className}`} align="middle">

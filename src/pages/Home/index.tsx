@@ -5,21 +5,21 @@ import { useRecoilState, useSetRecoilState } from 'recoil'
 import animalsApi from '../../api/animalsApi'
 import { classFeature } from '../../constants/className'
 import { CONTENT_HOME } from '../../constants/content'
-import { searchState } from '../../recoil/searchState'
 import { animalsState } from '../../recoil/animalsState'
+import { searchState } from '../../recoil/searchState'
 import { Animal } from '../../types/Animal'
+import { Search } from '../../types/Search'
 import HowItWork from './components/howitwork'
 import Landing from './components/landing'
 import ListAnimal from './components/listAnimals'
 import './home.scss'
-import { Search } from '../../types/Search'
 
 const className = classFeature.home
 const content = CONTENT_HOME
 
 function Home() {
     const [animals, setAnimals] = useRecoilState<Array<Animal>>(animalsState)
-    const [search, setSearch] = useRecoilState<Search>(searchState)
+    const setSearch = useSetRecoilState<Search>(searchState)
 
     const nav = useNavigate()
 
@@ -38,6 +38,7 @@ function Home() {
         animals.length &&
             animals.map((value) => {
                 if (value.name.indexOf(valueSearch) !== -1) return dataSearch.push(value)
+                return true
             })
         setSearch({ filter: { search: valueSearch }, dataFilter: dataSearch })
         nav('/animals')

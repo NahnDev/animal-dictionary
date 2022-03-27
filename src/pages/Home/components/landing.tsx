@@ -27,7 +27,13 @@ function Landing(props: IProps) {
                 <Row>
                     {listAnimal.map((animal, index) => {
                         if (index < 3)
-                            return <CardAnimal animal={animal} className={`${className}--card`} />
+                            return (
+                                <CardAnimal
+                                    key={`landing-card-item-${index}`}
+                                    animal={animal}
+                                    className={`${className}--card`}
+                                />
+                            )
                     })}
                 </Row>
             </Col>

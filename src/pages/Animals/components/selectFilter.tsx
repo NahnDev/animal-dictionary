@@ -1,6 +1,6 @@
 import { Col, Dropdown, Menu, Row, Select } from 'antd'
 import React, { useEffect, useState } from 'react'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilValue } from 'recoil'
 import animalClsApi from '../../../api/animalClsApi'
 import familiaApi from '../../../api/familiaApi'
 import ordoApi from '../../../api/ordoApi'
@@ -52,6 +52,7 @@ function SelectFilter(props: IProps) {
                 </Col>
                 <Col xs={24}>
                     <Select
+                        key={`select-familia`}
                         value={search.filter?.familia || 'Familia'}
                         bordered={false}
                         onChange={(val) => handleFilter(val, 'familia')}
@@ -60,7 +61,7 @@ function SelectFilter(props: IProps) {
                     >
                         {listCategory?.familia?.map((value, index) => {
                             return (
-                                <Option key={`select-options-${index}`} value={value._id}>
+                                <Option key={`select-options-familia-${index}`} value={value._id}>
                                     {value.name}
                                 </Option>
                             )
@@ -74,6 +75,7 @@ function SelectFilter(props: IProps) {
                 </Col>
                 <Col xs={24}>
                     <Select
+                        key={`select-ordo`}
                         value={search.filter?.ordo || 'Ordo'}
                         bordered={false}
                         onChange={(val) => handleFilter(val, 'ordo')}
@@ -82,7 +84,7 @@ function SelectFilter(props: IProps) {
                     >
                         {listCategory?.ordo?.map((value, index) => {
                             return (
-                                <Option key={`select-options-${index}`} value={value._id}>
+                                <Option key={`select-options-ordo-${index}`} value={value._id}>
                                     {value.name}
                                 </Option>
                             )
@@ -96,6 +98,7 @@ function SelectFilter(props: IProps) {
                 </Col>
                 <Col xs={24}>
                     <Select
+                        key={`select-class`}
                         value={search.filter?.animalCls || 'Class'}
                         bordered={false}
                         onChange={(val) => handleFilter(val, 'class')}
@@ -104,7 +107,7 @@ function SelectFilter(props: IProps) {
                     >
                         {listCategory?.class?.map((value, index) => {
                             return (
-                                <Option key={`select-options-${index}`} value={value._id}>
+                                <Option key={`select-options-ordo-${index}`} value={value._id}>
                                     {value.name}
                                 </Option>
                             )
