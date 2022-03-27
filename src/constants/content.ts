@@ -49,6 +49,7 @@ export const CONTENT_COMPONENT = {
             { path: 'ordo', text: 'Ordo', roles: ['ADMIN', 'EDITOR'] },
             { path: 'phylum', text: 'Phylum', roles: ['ADMIN', 'EDITOR'] },
             { path: 'regnum', text: 'Regnum', roles: ['ADMIN', 'EDITOR'] },
+            { path: 'import', text: 'Import', roles: ['ADMIN', 'EDITOR'] },
         ],
     },
 }
