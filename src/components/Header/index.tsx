@@ -1,4 +1,5 @@
 import { Col, Row } from 'antd'
+import { useLocation } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { classComponent } from '../../constants/className'
 import { CONTENT_COMPONENT } from '../../constants/content'
@@ -13,10 +14,13 @@ const content = CONTENT_COMPONENT.header
 
 function Header() {
     const [user, setUser] = useRecoilState(userState)
+
     const handleLogout = () => {
         localStorage.clear()
         setUser({ ...user, isLogin: false })
     }
+
+
 
     return (
         <Row justify="space-between" className={`${className}`} align="middle">

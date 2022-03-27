@@ -28,7 +28,8 @@
 
             transition: all 750ms;
             &:hover,
-            &:focus {
+            &:focus,
+            &.active {
                 border-bottom: 1px solid $color_eerie_black;
                 transition: all 750ms;
             }
