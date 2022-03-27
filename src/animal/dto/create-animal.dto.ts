@@ -1,6 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsArray, IsMongoId, IsNumber, IsString } from 'class-validator';
+import {
+  IsArray,
+  IsMongoId,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 import { Coordinate } from '../schema/coordinate.schema';
 
 export class CreateAnimalDto {
@@ -45,46 +51,57 @@ export class CreateAnimalDto {
   @Type(() => Coordinate)
   coordinate: Coordinate[];
 
+  @IsOptional()
   @ApiProperty()
   @IsString()
   morphological: string;
 
+  @IsOptional()
   @ApiProperty()
   @IsString()
   ecological: string;
 
+  @IsOptional()
   @ApiProperty()
   @IsString()
   value: string;
 
+  @IsOptional()
   @ApiProperty()
   @IsString()
   IUCN: string;
 
+  @IsOptional()
   @ApiProperty()
   @IsString()
   VRB: string;
 
+  @IsOptional()
   @ApiProperty()
   @IsString()
   Decree: string;
 
+  @IsOptional()
   @ApiProperty()
   @IsString()
   CITES: string;
 
+  @IsOptional()
   @ApiProperty()
   @IsString()
   distribution: string;
 
+  @IsOptional()
   @ApiProperty()
   @IsString()
   specimen: string;
 
+  @IsOptional()
   @ApiProperty()
   @IsString()
   habitat: string;
 
+  @IsOptional()
   @ApiProperty()
   @IsString()
   place: string;

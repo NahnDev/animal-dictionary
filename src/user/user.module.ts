@@ -6,7 +6,20 @@ import { User, UserSchema } from './schemas/user.schema';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    MongooseModule.forFeatureAsync([
+      {
+        name: User.name,
+        useFactory: () => {
+          const schema = UserSchema;
+          schema.index({
+            name: 'text',
+            nameplate: 'text',
+            scienceName: 'text',
+          });
+          return schema;
+        },
+      },
+    ]),
   ],
   controllers: [UserController],
   providers: [UserService],

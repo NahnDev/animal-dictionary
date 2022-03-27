@@ -90,47 +90,47 @@ export class Animal {
   coordinate: Coordinate[];
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, default: '' })
   morphological: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, default: '' })
   ecological: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, default: '' })
   value: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, default: '' })
   IUCN: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, default: '' })
   VRB: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, default: '' })
   Decree: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, default: '' })
   CITES: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, default: '' })
   distribution: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, default: '' })
   specimen: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, default: '' })
   habitat: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, default: '' })
   place: string;
 
   @ApiProperty()
@@ -162,3 +162,4 @@ export const AnimalSchema = SchemaFactory.createForClass(Animal);
 AnimalSchema.methods.toJSON = function (): Animal {
   return plainToInstance(Animal, this.toObject());
 };
+AnimalSchema.index({ name: 'text', nameplate: 'text', scienceName: 'text' });

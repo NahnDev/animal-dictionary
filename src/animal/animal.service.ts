@@ -14,6 +14,7 @@ export class AnimalService {
   ) {}
 
   async create(createAnimalDto: CreateAnimalDto, actor: User) {
+    console.log(createAnimalDto);
     const animal = new this.animalModel({
       ...createAnimalDto,
       createBy: actor._id,
@@ -33,12 +34,24 @@ export class AnimalService {
     if (!filter.animalCls) delete filter.animalCls;
     if (!filter.familia) delete filter.familia;
     if (!filter.ordo) delete filter.ordo;
+    console.log(filter);
     const animalDoc = await this.animalModel
       .find({
         ...filter,
-        $text: {
-          $search: search,
-        },
+        $or: [
+          {
+            name: new RegExp(search, 'i'),
+          },
+          {
+            nameplate: new RegExp(search, 'i'),
+          },
+          {
+            scienceName: new RegExp(search, 'i'),
+          },
+        ],
+        // $text: {
+        //   $search: search,
+        // },
       }) //// ------------------------------
       .skip(page * ITEM_OF_PAGE)
       .limit(ITEM_OF_PAGE);
