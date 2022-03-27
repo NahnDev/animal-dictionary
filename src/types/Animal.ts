@@ -26,7 +26,7 @@ export type Animal = {
     habitat: string
     place: string
     collBy: string
-    collAt: number
+    collAt: number | moment.Moment
     createBy?: string
     createAt?: number
 }

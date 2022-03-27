@@ -3,6 +3,7 @@ import { FastField, Form, Formik } from 'formik'
 import React from 'react'
 import * as Yup from 'yup'
 import { classFeature } from '../../../../../constants/className'
+import AddInputField from '../../../../../custom-fields/AddInputField'
 import AreaField from '../../../../../custom-fields/AreaField'
 import ButtonField from '../../../../../custom-fields/BtnSubmit'
 import DateField from '../../../../../custom-fields/DateField'
@@ -258,6 +259,24 @@ function FormAddEdit(props: IProps) {
                                             type={'text'}
                                             className={`${className}__form--field`}
                                             label={'Coll At'}
+                                        />
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col xs={12}>
+                                        <FastField
+                                            component={AddInputField}
+                                            name={'images'}
+                                            className={`${className}__form--field`}
+                                            label={'List Image'}
+                                        />
+                                    </Col>
+                                    <Col xs={12}>
+                                        <FastField
+                                            component={AddInputField}
+                                            name={'coordinate'}
+                                            className={`${className}__form--field`}
+                                            label={'Coordinate'}
                                         />
                                     </Col>
                                 </Row>
