@@ -10,12 +10,14 @@ import { User, UserDocument } from './schemas/user.schema';
 import { Model } from 'mongoose';
 import { hash, compare } from 'bcryptjs';
 import { USER_ROLE } from 'src/enum/USER_ROLE';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class UserService implements OnApplicationBootstrap {
   // constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
   constructor(
     @InjectModel(User.name) private readonly userModel: Model<UserDocument>,
+    private readonly configService: ConfigService,
   ) {}
   async create(createUserDto: CreateUserDto) {
     createUserDto.password = await this.passHash(createUserDto.password);
@@ -66,7 +68,7 @@ export class UserService implements OnApplicationBootstrap {
     if (!(await this.findWithUsername('root')))
       this.create({
         name: 'root',
-        password: '1234',
+        password: this.configService.get<string>('security.root.password'),
         username: 'root',
         role: USER_ROLE.ADMIN,
       });
