@@ -26,11 +26,13 @@ type SearchQuery = {
 function Animals() {
     const [animals, setAnimals] = useRecoilState(animalsState)
     // const [searchOld, setSearchOld] = useRecoilState(searchState)
+    const [sState, setSearchState] = useRecoilState(searchState)
     const { search, setSearch } = useSearch<SearchQuery>((search: SearchQuery) => {
         animalsApi.getAnimal(search).then((response) => {
             setAnimals(response)
         })
     }, 300)
+    useEffect(() => setSearchState({ filter: search, dataFilter: [] }), [search])
 
     // useEffect(() => {
     //     setSearch(searchOld.filter as SearchQuery)
