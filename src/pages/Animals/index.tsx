@@ -51,6 +51,7 @@ function Animals() {
 
     const handleFilter = (value: string, type: 'search' | 'familia' | 'ordo' | 'class') => {
         // let dataSearch: Array<Animal> = []
+        // let filter: SearchQuery = search || { search: '', animalCls: '', familia: '', ordo: '' }
         let filter: { search: string; familia: string; ordo: string; animalCls: string } = {
             search: '',
             familia: '',
