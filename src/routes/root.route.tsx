@@ -3,6 +3,7 @@ import LoginPage from '../pages/Login'
 import HomePage from '../pages/Home'
 import AnimalsPage from '../pages/Animals'
 import AnimalsDetailPage from '../pages/Detail'
+import AboutUsPage from '../pages/AboutUs'
 
 export const ROOT_ROUTE: RouteProps[] = [
     {
@@ -21,4 +22,5 @@ export const ROOT_ROUTE: RouteProps[] = [
         path: '/animals/:id',
         element: <AnimalsDetailPage />,
     },
+    { path: '/about', element: <AboutUsPage></AboutUsPage> },
 ]

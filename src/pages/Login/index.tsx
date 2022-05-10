@@ -5,6 +5,7 @@ import userApi from '../../api/userApi'
 import { classFeature } from '../../constants/className'
 import { CONTENT_LOGIN } from '../../constants/content'
 import Images from '../../constants/images'
+import { openNotificationWithIcon } from '../../functions/global'
 import { searchState } from '../../recoil/searchState'
 import { userState } from '../../recoil/userState'
 import { FormLoginUser } from '../../types/User'
@@ -26,6 +27,11 @@ function Login() {
             localStorage.setItem('_id', response.user._id || '')
         } catch (error: any) {
             console.log(error)
+            openNotificationWithIcon(
+                'warning',
+                'Xác thực thất bại, tên tài khoản hoặc mật khẩu không chính xác!',
+                'Xác thực thất bại, tên tài khoản hoặc mật khẩu không chính xác'
+            )
         }
     }
 
@@ -44,7 +50,7 @@ function Login() {
                     className={`${className}__bg`}
                     src={Images.LOGIN_BG}
                     alt={'login-background'}
-                />
+                ></img>
             </Col>
             <Col xs={12}>
                 <FormLogin

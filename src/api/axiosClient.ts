@@ -1,5 +1,6 @@
 import axios from 'axios'
 import queryString from 'query-string'
+import { openNotificationWithIcon } from '../functions/global'
 
 const axiosClient = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
